@@ -276,7 +276,9 @@ function create_config( )
     "app",
     "rankk",
     "info2",
-    "share"
+    "share",
+    "stickerid",
+    "numberid",
     },
     sudo_users = {170172168,246123506},
     moderation = {data = 'data/moderation.json'},
