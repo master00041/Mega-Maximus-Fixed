@@ -124,10 +124,10 @@ local function kick_ban_res(extra, success, result)
         redis:srem(hash, member_id)
         return 'User '..user_id..' unbanned'
       elseif get_cmd == 'banall' then
-        send_large_msg(receiver, 'User @'..member..' ['..member_id..'] globally banned')
+        send_large_msg(receiver, 'این بی ناموس @'..member..' ['..member_id..'] از همه گروهای ربات سیکتیر شد')
 		banall_user(member_id)
       elseif get_cmd == 'unbanall' then
-        send_large_msg(receiver, 'User @'..member..' ['..member_id..'] globally unbanned')
+        send_large_msg(receiver, 'کاربر @'..member..' ['..member_id..'] از بن جهانی خارج شد')
 	    unbanall_user(member_id)
     end
 end
