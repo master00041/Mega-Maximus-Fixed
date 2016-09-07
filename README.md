@@ -1,12 +1,18 @@
+# Mega_maximus :
+made by [pedaret](https://telegra.me/pedaret) & [makhfi](https://telegram.me/makhfi)
+an advanced telegram managing bot for supergroups & normal groups based on Yagop
+
+
+
 ```sh
-# Install dependencies.
+# How to Install :
 # Tested on Ubuntu 14.04. For other OSs, check out https://github.com/yagop/telegram-bot/wiki/Installation
 sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev make unzip git redis-server g++ libjansson-dev libpython-dev expat libexpat1-dev
 
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/SIGNALTEAM/SignalTG.git
-cd SignalTG
+git clone https://github.com/master00041/Mega-Maximus-Fixed.git
+cd Mega-Maximus-Fixed
 chmod +x launchfix2.sh
 chmod +x launch.sh
 chmod +x autolaunch.sh
@@ -18,7 +24,7 @@ cd bin
 ./luarocks-5.2 install lub
 ./luarocks-5.2 install luaexpat
 cd $HOME
-cd SignalTG
+cd Mega-Maximus-Fixed
 ./launch.sh install
 ./launch.sh # Enter a phone number & confirmation code.
 ```
