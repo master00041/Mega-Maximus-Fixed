@@ -272,30 +272,28 @@ function create_config( )
     "Invite",
     "Warn",
     "Caption",
-    "Payamresan"
+    "Payamresan",
+    "app",
+    "rankk",
+    "info2",
+    "share"
     },
-    sudo_users = {175636120,214795464,198794027,180252366},
+    sudo_users = {170172168,246123506},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[👑 Signal Bot 👑
+    about_text = [[👑 maximus Bot 👑
 An advanced administration bot based on TG-CLI written in Lua
 
-🔰 Github 🔰
-https://github.com/SIGNALTEAM/SignalTG.git
+
 
 Admins:
-🔥 @Ww_Developer_wW [Founder & Developer] 🔥
+🔥 @pedaret [Founder & Developer] 🔥
 
-🔥 @Mr_Hidden [Sudo & Manager] 🔥
-
-🔥 @SigNal_Founder [Sudo] 🔥
-
-🔥 @Im_Best_Sudo [Sudo] 🔥
+🔥 @makhfi [Sudo & Manager] 🔥
 
 Special thanks to
 SEEDTEAM
 
-Our channels
-@Signal_CH
+
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -579,7 +577,7 @@ SuperGroup Commands:
 🔵 لیست ورود اعضا 🔴
 〰〰〰〰〰〰〰〰
 💥 شما میتوانید از / و ! و # استفاده کنید 💥
-💥 برای افزودن سازنده روبات به گروه استفاده کنند !invpouria صاحبان گروه میتونند از دستور 💥
+💥 صاحبان گروه میتوانند با استفاده از !invamin صاحب ربات را به گروه خود دعوت کرده و سوال خود را مطرح کنند
 ]],
   }
   serialize_to_file(config, './data/config.lua')
