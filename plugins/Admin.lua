@@ -319,7 +319,7 @@ return {
 	"^[#!/](addcontact) (.*) (.*) (.*)$", 
 	"^[#!/](sendcontact) (.*) (.*) (.*)$",
 	"^[#!/](mycontact)$",
-	"^[#/!](reload)$",
+	"^(🔃)$",
 	"^[#/!](updateid)$",
 	"^[#/!](sync_gbans)$",
 	"^[#/!](addlog)$",
