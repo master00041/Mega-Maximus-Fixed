@@ -179,7 +179,7 @@ local function lock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'yes' then
-    return '📛ارسال لینک در سوپر گروه قفل شد❌'
+    return "📛ارسال لینک در سوپر گروه قفل شد❌ \n by :'..msg.from.id..'"
 '
   else
     data[tostring(target)]['settings']['lock_link'] = 'yes'
@@ -198,7 +198,7 @@ local function unlock_group_links(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_link'] = 'no'
     save_data(_config.moderation.data, data)
-    return '☢قفل ارسال لینک باز شد❗️'
+    return "☢قفل ارسال لینک باز شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -212,7 +212,7 @@ local function lock_group_all(msg, data, target)
   else
     data[tostring(target)]['settings']['all'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '📵همه تنظیمات قفل شدند❕'
+    return "📵همه تنظیمات قفل شدند❕ \n by : '..msg.from.id..'"
   end
 end
 
@@ -226,7 +226,7 @@ local function unlock_group_all(msg, data, target)
   else
     data[tostring(target)]['settings']['all'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل همه تنظیمات باز شد'
+    return "⭕️قفل همه تنظیمات باز شد \n by : '..msg.from.id..'"
   end
 end
 
@@ -240,7 +240,7 @@ local function lock_group_etehad(msg, data, target)
   else
     data[tostring(target)]['settings']['etehad'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '🚷تنظیمات اتحاد فعال شد❗️'
+    return "🚷تنظیمات اتحاد فعال شد❗ \n by : '..msg.from.id..'"
   end
 end
 
@@ -254,7 +254,7 @@ local function unlock_group_etehad(msg, data, target)
   else
     data[tostring(target)]['settings']['etehad'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️تنظیمات اتحاد غیر فعال شد❕'
+    return "⭕️تنظیمات اتحاد غیر فعال شد❕ \n by : '..msg.from.id..'"
   end
 end
 
@@ -268,7 +268,7 @@ local function lock_group_leave(msg, data, target)
   else
     data[tostring(target)]['settings']['leave'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل ترک گروه فعال شد💢'
+    return "❌قفل ترک گروه فعال شد💢 \n by : '..msg.from.id..'"
   end
 end
 
@@ -282,7 +282,7 @@ local function unlock_group_leave(msg, data, target)
   else
     data[tostring(target)]['settings']['leave'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ترک گروه باز شد❕'
+    return "⭕️قفل ترک گروه باز شد❕ \n by : '..msg.from.id..'"
   end
 end
 
@@ -296,7 +296,7 @@ local function lock_group_operator(msg, data, target)
   else
     data[tostring(target)]['settings']['operator'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '💢قفل اوپراتور فعال شد❗️'
+    return "💢قفل اوپراتور فعال شد❗ \n by : '..msg.from.id..'"
   end
 end
 
@@ -310,7 +310,7 @@ local function unlock_group_operator(msg, data, target)
   else
     data[tostring(target)]['settings']['operator'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل اوپراتور باز شد❗️'
+    return "⭕️قفل اوپراتور باز شد❗ \n by : '..msg.from.id..'"
   end
 end
 
@@ -324,7 +324,7 @@ local function lock_group_reply(msg, data, target)
   else
     data[tostring(target)]['settings']['reply'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل ریپلی فعال شد❗️'
+    return "❌قفل ریپلی فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -338,7 +338,7 @@ local function unlock_group_reply(msg, data, target)
   else
     data[tostring(target)]['settings']['reply'] = 'no'
     save_data(_config.moderation.data, data)
-    return '✴️قفل ریپلی باز شد❗️'
+    return "✴️قفل ریپلی باز شد❗ \n by : '..msg.from.id..'"
   end
 end
 
@@ -352,7 +352,7 @@ local function lock_group_username(msg, data, target)
   else
     data[tostring(target)]['settings']['username'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '📛قفل ارسال آیدی فعال شد❗️'
+    return "📛قفل ارسال آیدی فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -366,7 +366,7 @@ local function unlock_group_username(msg, data, target)
   else
     data[tostring(target)]['settings']['username'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ارسال آیدی غیر فعال شد❗️'
+    return "⭕️قفل ارسال آیدی غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -380,7 +380,7 @@ local function lock_group_media(msg, data, target)
   else
     data[tostring(target)]['settings']['media'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '📛قفل مدیا فعال شد❗️'
+    return "📛قفل مدیا فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -394,7 +394,7 @@ local function unlock_group_media(msg, data, target)
   else
     data[tostring(target)]['settings']['media'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل مدیا غیر فعال شد❗️'
+    return "⭕️قفل مدیا غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -408,7 +408,7 @@ local function lock_group_fosh(msg, data, target)
   else
     data[tostring(target)]['settings']['fosh'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '🔞قفل فش فعال شد❗️'
+    return "🔞قفل فش فعال شد❗ \n by : '..msg.from.id..'"
   end
 end
 
@@ -422,7 +422,7 @@ local function unlock_group_fosh(msg, data, target)
   else
     data[tostring(target)]['settings']['fosh'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل فش غیر فعال شد❗️'
+    return "⭕️قفل فش غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -436,7 +436,7 @@ local function lock_group_join(msg, data, target)
   else
     data[tostring(target)]['settings']['join'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل پیوستن افراد به گروه فعال شد❗️'
+    return "❌قفل پیوستن افراد به گروه فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -450,7 +450,7 @@ local function unlock_group_join(msg, data, target)
   else
     data[tostring(target)]['settings']['join'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل پیوستن افراد به گروه غیر فعال شد❗️'
+    return "⭕️قفل پیوستن افراد به گروه غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -464,7 +464,7 @@ local function lock_group_fwd(msg, data, target)
   else
     data[tostring(target)]['settings']['fwd'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل فووروارد فعال شد❗️'
+    return "❌قفل فووروارد فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -478,7 +478,7 @@ local function unlock_group_fwd(msg, data, target)
   else
     data[tostring(target)]['settings']['fwd'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل فووروارد غیر فعال شد❗️'
+    return "⭕️قفل فووروارد غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -492,7 +492,7 @@ local function lock_group_english(msg, data, target)
   else
     data[tostring(target)]['settings']['english'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل ارسال متن انگلیسی فعال شد❗️'
+    return "❌قفل ارسال متن انگلیسی فعال شد❗️ \n  by : '..msg.from.id..'"
   end
 end
 
@@ -506,7 +506,7 @@ local function unlock_group_english(msg, data, target)
   else
     data[tostring(target)]['settings']['english'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ارسال متن انگلیسی غیر فعال شد❗️'
+    return "⭕️قفل ارسال متن انگلیسی غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -520,7 +520,7 @@ local function lock_group_emoji(msg, data, target)
   else
     data[tostring(target)]['settings']['emoji'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل ارسال شکلک فعال شد❗️'
+    return "❌قفل ارسال شکلک فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -534,7 +534,7 @@ local function unlock_group_emoji(msg, data, target)
   else
     data[tostring(target)]['settings']['emoji'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ارسال شکلک غیر فعال شد❗️'
+    return "⭕️قفل ارسال شکلک غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -548,7 +548,7 @@ local function lock_group_tag(msg, data, target)
   else
     data[tostring(target)]['settings']['tag'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل ارسال تگ فعال شد❗️'
+    return "❌قفل ارسال تگ فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -562,7 +562,7 @@ local function unlock_group_tag(msg, data, target)
   else
     data[tostring(target)]['settings']['tag'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ارسال تگ غیر فعال شد❗️'
+    return "⭕️قفل ارسال تگ غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -593,7 +593,7 @@ local function lock_group_spam(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_spam'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل اسپم در سوپر گروه فعال شد❗️'
+    return "❌قفل اسپم در سوپر گروه فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -607,7 +607,7 @@ local function unlock_group_spam(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_spam'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل اسپم در سوپر گروه غیر فعال شد❗️'
+    return "⭕️قفل اسپم در سوپر گروه غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -621,7 +621,7 @@ local function lock_group_flood(msg, data, target)
   else
     data[tostring(target)]['settings']['flood'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌اسپم سرعتی قفل شد❗️'
+    return "❌اسپم سرعتی قفل شد❗️ \n  by : '..msg.from.id..'"
   end
 end
 
@@ -635,7 +635,7 @@ local function unlock_group_flood(msg, data, target)
   else
     data[tostring(target)]['settings']['flood'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل اسپم سرعتی غیر فعال شد❗️'
+    return "⭕️قفل اسپم سرعتی غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -649,7 +649,7 @@ local function lock_group_arabic(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_arabic'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '🚷قفل ارسال متن عربی/فارسی فعال شد❕'
+    return "🚷قفل ارسال متن عربی/فارسی فعال شد❕ \n by : '..msg.from.id..'"
   end
 end
 
@@ -663,7 +663,7 @@ local function unlock_group_arabic(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_arabic'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ارسال متن عربی/فارسی غیر فعال شد❗️'
+    return "⭕️قفل ارسال متن عربی/فارسی غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -679,7 +679,7 @@ local function lock_group_membermod(msg, data, target)
     data[tostring(target)]['settings']['lock_member'] = 'yes'
     save_data(_config.moderation.data, data)
   end
-  return '❌قفل ورود کاربران به گروه فعال شد❗️'
+  return "❌قفل ورود کاربران به گروه فعال شد❗️ \n by : '..msg.from.id..'"
 end
 
 local function unlock_group_membermod(msg, data, target)
@@ -692,7 +692,7 @@ local function unlock_group_membermod(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_member'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ورود افراد به گروه غیر فعال شد❗️'
+    return "⭕️قفل ورود افراد به گروه غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -706,7 +706,7 @@ local function lock_group_rtl(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_rtl'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل RTLفعال شد❗️'
+    return "❌قفل RTLفعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -720,7 +720,7 @@ local function unlock_group_rtl(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_rtl'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل RTL غیر فعال شد❗️'
+    return "⭕️قفل RTL غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -734,7 +734,7 @@ local function lock_group_tgservice(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_tgservice'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل TGSERVICE فعال شد❗️'
+    return "❌قفل TGSERVICE فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -748,7 +748,7 @@ local function unlock_group_tgservice(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_tgservice'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل TGSERVICE غیر فعال شد❗️'
+    return "⭕️قفل TGSERVICE غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -762,7 +762,7 @@ local function lock_group_sticker(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_sticker'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل ارسال استیکر فعال شد❗️'
+    return "❌قفل ارسال استیکر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -776,7 +776,7 @@ local function unlock_group_sticker(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_sticker'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ارسال استیکر غیر فعال شد❗️'
+    return "⭕️قفل ارسال استیکر غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -790,7 +790,7 @@ local function lock_group_bots(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_bots'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل افزودن ربات فعال شد❗️'
+    return "❌قفل افزودن ربات فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -804,7 +804,7 @@ local function unlock_group_bots(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_bots'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل افزودن ربات غیر فعال شد❗️'
+    return "⭕️قفل افزودن ربات غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -818,7 +818,7 @@ local function lock_group_contacts(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_contacts'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌قفل ارسال شماره فعال شد❗️'
+    return "❌قفل ارسال شماره فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -832,7 +832,7 @@ local function unlock_group_contacts(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_contacts'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ارسال شماره غیر فعال شد❗️ by :'..msg.from.id..
+    return "⭕️قفل ارسال شماره غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -846,7 +846,7 @@ local function enable_strict_rules(msg, data, target)
   else
     data[tostring(target)]['settings']['strict'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '❌تنظیمات سختگیرانه فعال شد❗️'
+    return "❌تنظیمات سختگیرانه فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 
@@ -860,7 +860,7 @@ local function disable_strict_rules(msg, data, target)
   else
     data[tostring(target)]['settings']['strict'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️تنظیمات سختگیرانه غیر فعال شد❗️'
+    return "⭕️تنظیمات سختگیرانه غیر فعال شد❗️ \n by : '..msg.from.id..'"
   end
 end
 --End supergroup locks
@@ -1036,7 +1036,7 @@ function show_supergroup_settingsmod(msg, target)
   local settings = data[tostring(target)]['settings']
   local text = "\n⚙SuperGroup settings⚙:\n____________________\n⚡️Lock links : "..settings.lock_link.."\n⚡️Lock contacts: "..settings.lock_contacts.."\n⚡️Lock flood: "..settings.flood.."\n⚡️Flood sensitivity : "..NUM_MSG_MAX.."\n⚡️Lock spam: "..settings.lock_spam.."\n⚡️Lock Arabic: "..settings.lock_arabic.."\n⚡️Lock Member: "..settings.lock_member.."\n⚡️Lock RTL: "..settings.lock_rtl.."\n⚡️Lock Tgservice: "..settings.lock_tgservice.."\n⚡️Lock sticker: "..settings.lock_sticker.."\n⚡️Lock tag: "..settings.tag.."\n⚡️Lock emoji: "..settings.emoji.."\n⚡️Lock english: "..settings.english.."\n⚡️Lock Forward: "..settings.fwd.."\n⚡️Lock reply: "..settings.reply.."\n⚡️Lock join: "..settings.join.."\n⚡️Lock username: "..settings.username.."\n⚡️Lock media: "..settings.media.."\n⚡️Lock fosh: "..settings.fosh.."\n⚡️Lock leave: "..settings.leave.."\n⚡️Lock bots: "..bots_protection.."\n⚡️Lock operator: "..settings.operator.."\n____________________\n⚙Easy Sweet&Faster Switch⚙:️\n____________________\n⚡️ Switch Model Etehad: "..settings.etehad.."\n⚡️Lock all: "..settings.all.."\n____________________\nℹ️About Groupℹ️:️\n____________________\n⚡️ Group type: "..gp_type.."\n⚡️Public: "..settings.public.."\n⚡️Strict settings: "..settings.strict.."\n____________________\n💥Bot Version : 1.0 💥\n💥Sinal Bot💥\n@SignalTM"
   local text = string.gsub(text,'yes','✅')
-  local text = string.gsub(text,'no',''❎)
+  local text = string.gsub(text,'no','❎')
   return text
 end
 
