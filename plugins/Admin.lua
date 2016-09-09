@@ -262,7 +262,7 @@ end
 		receiver = get_receiver(msg)
 		reload_plugins(true)
 		post_msg(receiver, "Reloaded!", ok_cb, false)
-		return "bot reloaded by : '..msg.from.id..' "\n "All plugins are reloaded"\n "Mega-Maximus is ready!"
+		return "bot reloaded by : '..msg.from.id..' \nAll plugins are Reloaded \nMega-Maximus is Ready!!"
 	end
 	--[[*For Debug*
 	if matches[1] == "vardumpmsg" and is_admin1(msg) then
