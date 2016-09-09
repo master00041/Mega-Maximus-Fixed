@@ -832,7 +832,7 @@ local function unlock_group_contacts(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_contacts'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⭕️قفل ارسال شماره غیر فعال شد❗️ by : ..msg.from.id..'
+    return '⭕️قفل ارسال شماره غیر فعال شد❗️ by :'..msg.from.id..
   end
 end
 
@@ -1212,9 +1212,9 @@ function get_message_callback(extra, success, result)
 			save_data(_config.moderation.data, data)
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] set: ["..result.from.peer_id.."] as owner by reply")
 			if result.from.username then
-				text = "@"..result.from.username.." [ "..result.from.peer_id.." ] added as owner"
+				text = "@"..result.from.username.." [ "..result.from.peer_id.." ] ارتقا درجه یافت(صاحب گروه)/😃\"
 			else
-				text = "[ "..result.from.peer_id.." ] added as owner"
+				text = "[ "..result.from.peer_id.." ] ارتقا درجه یافت(صاحب گروه)/😃\"
 			end
 			send_large_msg(channel_id, text)
 		end
@@ -1402,9 +1402,9 @@ local function callbackres(extra, success, result)
 		local user_id = "user#id"..result.peer_id
 		local channel_id = extra.channel
 		if is_admin2(result.peer_id) then
-			return send_large_msg(channel_id, "You can't demote global admins!")
+			return send_large_msg(channel_id, "")
 		end
-		channel_demote(channel_id, user_id, ok_cb, false)
+		channel_demote(channel_id, user_id, ok_cb, false)'شما نمیتوانید ادمین های ربات را عزل کنید😐'
 		if result.username then
 			text = "@"..result.username.." has been demoted from admin"
 			send_large_msg(channel_id, text)
@@ -1421,10 +1421,10 @@ local function callbackres(extra, success, result)
 		local chat_id = string.gsub(receiver, 'channel#id', '')
 		if is_muted_user(chat_id, user_id) then
 			unmute_user(chat_id, user_id)
-			send_large_msg(receiver, " ["..user_id.."] removed from muted user list")
+			send_large_msg(receiver, " ["..user_id.."] از لیست افراد میوت شده پاک شد")
 		elseif is_owner(extra.msg) then
 			mute_user(chat_id, user_id)
-			send_large_msg(receiver, " ["..user_id.."] added to muted user list")
+			send_large_msg(receiver, " ["..user_id.."] به لیست افراد میوت شده اضافه شد")
 		end
 	end
 end
@@ -1441,7 +1441,7 @@ local function in_channel_cb(cb_extra, success, result)
   local member = cb_extra.username
   local memberid = cb_extra.user_id
   if member then
-    text = 'No user @'..member..' in this SuperGroup.'
+    text = 'کاربری با ایدی @'..member..' در گروه موجود نیست'
   else
     text = 'No user ['..memberid..'] in this SuperGroup.'
   end
@@ -1457,10 +1457,10 @@ if get_cmd == "channel_block" then
         return send_large_msg("channel#id"..channel_id, "Leave using kickme command")
       end
       if is_momod2(user_id, channel_id) and not is_admin2(sender) then
-        return send_large_msg("channel#id"..channel_id, "You can't kick mods/owner/admins")
+        return send_large_msg("channel#id"..channel_id, "شما نمیتوانید مدیران یا صاحب گروه یا ادمین ها را کیک کنید😐")
       end
       if is_admin2(user_id) then
-        return send_large_msg("channel#id"..channel_id, "You can't kick other admins")
+        return send_large_msg("channel#id"..channel_id, "شما نمیتوانید ادمین های دیگر را کیک کنید😐")
       end
       if v.username then
         text = ""
@@ -1485,7 +1485,7 @@ elseif get_cmd == "setadmin" then
         text = "@"..v.username.." ["..v.peer_id.."] has been set as an admin"
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] set admin @"..v.username.." ["..v.peer_id.."]")
       else
-        text = "["..v.peer_id.."] has been set as an admin"
+        text = "["..v.peer_id.."] به عنوان ادمین گروه انتخاب شد"
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] set admin "..v.peer_id)
       end
 	  if v.username then
@@ -1520,9 +1520,9 @@ elseif get_cmd == "setadmin" then
 					save_data(_config.moderation.data, data)
 					savelog(channel, name_log.."["..from_id.."] set ["..v.peer_id.."] as owner by username")
 				if result.username then
-					text = member_username.." ["..v.peer_id.."] added as owner"
+					text = member_username.." ["..v.peer_id.."] ارتقا درجه یافت(صاحب گروه)/😃\"
 				else
-					text = "["..v.peer_id.."] added as owner"
+					text = "["..v.peer_id.."] ارتقا درجه یافت(صاحب گروه)/😃\"
 				end
 			end
 		elseif memberid and vusername ~= member and vpeer_id ~= memberid then
@@ -1739,7 +1739,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "⚡️ Your Name: " ..string.gsub(msg.from.print_name, "_", " ").. "\n⚡️ Your Username: @"..(msg.from.username or '----').."\n⚡️ Your ID: "..msg.from.id.."\n\n⚡️ SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n⚡️ SuperGroup ID: "..msg.to.id
+				return "⚡️ ☢نام کاربر: " ..string.gsub(msg.from.print_name, "_", " ").. "\n⚡️ ☣آیدی کاربری شما: @"..(msg.from.username or '----').."\n⚡️ 🆔آیدی عددی شما: "..msg.from.id.."\n\n⚡️ 🌐نام سوپر گروه: " ..string.gsub(msg.to.print_name, "_", " ").. "\n⚡️ 💠آیدی سوپر گروه: "..msg.to.id
 			end
 		end
 
@@ -1754,7 +1754,7 @@ local function run(msg, matches)
 			local function callback_link (extra , success, result)
 			local receiver = get_receiver(msg)
 				if success == 0 then
-					send_large_msg(receiver, '*Error: Failed to retrieve link* \nReason: Not creator.\n\nIf you have the link, please use /setlink to set it')
+					send_large_msg(receiver, '⚠️اخطار به دلیل مدیر اصلی نبودن در گروه نمیتوانم لینک جدید بسازم برای تنظیم لینک از /setlink استفاده کنید')
 					data[tostring(msg.to.id)]['settings']['set_link'] = nil
 					save_data(_config.moderation.data, data)
 				else
@@ -1770,14 +1770,14 @@ local function run(msg, matches)
 		if matches[1] == 'setlink' and is_owner(msg) then
 			data[tostring(msg.to.id)]['settings']['set_link'] = 'waiting'
 			save_data(_config.moderation.data, data)
-			return 'Please send the new group link now'
+			return '🌐هم اکنون لینک گروه را برای من بفرستید‼️'
 		end
 
 		if msg.text then
 			if msg.text:match("^(https://telegram.me/joinchat/%S+)$") and data[tostring(msg.to.id)]['settings']['set_link'] == 'waiting' and is_owner(msg) then
 				data[tostring(msg.to.id)]['settings']['set_link'] = msg.text
 				save_data(_config.moderation.data, data)
-				return "New link set"
+				return "➿لینک جدید تنظیم شد❕"
 			end
 		end
 
@@ -1787,10 +1787,10 @@ local function run(msg, matches)
 			end
 			local group_link = data[tostring(msg.to.id)]['settings']['set_link']
 			if not group_link then
-				return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link"
+				return "⚠️لینک پیدا نشد برای ساخت لینک جدید از /newlink استفاده کنید یا اگر من سازنده نیستم از دستور /setlink استفاده کنید💠"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return "Group link:\n"..group_link
+			return "🔱لینک گروه شما〽️:\n"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
@@ -2017,7 +2017,7 @@ local function run(msg, matches)
 			save_data(_config.moderation.data, data)
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup description to: "..about_text)
 			channel_set_about(receiver, about_text, ok_cb, false)
-			return "Description has been set.\n\nSelect the chat again to see the changes."
+			return "☢درباره گروه دوباره تنظیم شد برای دیدن به پروفایل گروه بروید‼️."
 		end
 
 		if matches[1] == "setusername" and is_admin1(msg) then
@@ -2051,7 +2051,7 @@ local function run(msg, matches)
 			data[tostring(msg.to.id)]['settings']['set_photo'] = 'waiting'
 			save_data(_config.moderation.data, data)
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] started setting new SuperGroup photo")
-			return 'Please send the new group photo now'
+			return '📸عکس جدید گروه را حالا بفرستید💾'
 		end
 
 		if matches[1] == 'clean' then
