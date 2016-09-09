@@ -189,41 +189,41 @@ local function run(msg, matches)
    else
    Username = '----'
    end
-   local text = '🌀Your name🌀 '..(msg.from.first_name or '----')..'\n〰〰〰〰〰〰〰〰〰〰\n'
-   local text = text..'⚜Your Last Name⚜ '..(msg.from.last_name or '----')..'\n〰〰〰〰〰〰〰〰〰〰\n'  
-               ..'🔵your link🔵 telegram.me/'..msg.from.username..'\n〰〰〰〰〰〰〰〰〰〰\n'
-   local text = text..'🌐Your id🌐'..msg.from.id..'\n〰〰〰〰〰〰〰〰〰〰\n'
-   local hash = '💠Your Rank💠 '..msg.to.id..':variables'
+   local text = '🌀نام🌀 '..(msg.from.first_name or '----')..'\n〰〰〰〰〰〰〰〰〰〰\n'
+   local text = text..'⚜نام خانوادگی '..(msg.from.last_name or '----')..'\n〰〰〰〰〰〰〰〰〰〰\n'  
+               ..'🔵لینک شما🔵 telegram.me/'..msg.from.username..'\n〰〰〰〰〰〰〰〰〰〰\n'
+   local text = text..'🌐آیدی کاربر شما🌐'..msg.from.id..'\n〰〰〰〰〰〰〰〰〰〰\n'
+   local hash = '💠مقام شما '..msg.to.id..':variables'
   if hash then
     local value = redis:hget(hash, msg.from.id)
     if not value then
     if msg.from.id == tonumber(Arian) then
-     text = text..'🔆Rank🔆 Admin\n〰〰〰〰〰〰〰〰〰〰\n'
+     text = text..'🔆مقام🔆 ادمین ربات\n〰〰〰〰〰〰〰〰〰〰\n'
      elseif msg.from.id == tonumber(Sosha) then
-     text = text..'🔆Rank🔆 OWNER\n〰〰〰〰〰〰〰〰〰〰\n'
+     text = text..'🔆مقام🔆 صاحب گروه\n〰〰〰〰〰〰〰〰〰〰\n'
     elseif is_sudo(msg) then
-     text = text..'🔆Rank🔆 SUDO\n〰〰〰〰〰〰〰〰〰〰\n'
+     text = text..'🔆مقام🔆 ادمین کل ربات\n〰〰〰〰〰〰〰〰〰〰\n'
     elseif is_owner(msg) then
-     text = text..'🔆Rank🔆 GROUP Admin\n〰〰〰〰〰〰〰〰〰〰\n'
+     text = text..'🔆مقام🔆 مدیر گروه\n〰〰〰〰〰〰〰〰〰〰\n'
     elseif is_momod(msg) then
-     text = text..'🔆Rank🔆 Moderator\n〰〰〰〰〰〰〰〰〰〰\n'
+     text = text..'🔆مقام🔆 مدیر گروه\n〰〰〰〰〰〰〰〰〰〰\n'
     else
-     text = text..'🔆Rank🔆 Member\n〰〰〰〰〰〰〰〰〰〰\n'
+     text = text..'🔆مقام🔆 کاربر\n〰〰〰〰〰〰〰〰〰〰\n'
     end
     else
-     text = text..'🔆Rank🔆'..value..'\n〰〰〰〰〰〰〰〰〰〰\n'
+     text = text..'🔆مقام🔆'..value..'\n〰〰〰〰〰〰〰〰〰〰\n'
     end
   end
    local uhash = 'user:'..msg.from.id
     local user = redis:hgetall(uhash)
      local um_hash = 'msgs:'..msg.from.id..':'..msg.to.id
    user_info_msgs = tonumber(redis:get(um_hash) or 0)
-   text = text..'📃Messages📃'..user_info_msgs..'\n〰〰〰〰〰〰〰〰〰〰\n'
+   text = text..'📃تعداد پیام ها📃'..user_info_msgs..'\n〰〰〰〰〰〰〰〰〰〰\n'
     if msg.to.type == 'chat' or msg.to.type == 'channel' then
-   text = text..'🔶Group Name🔶'..msg.to.title..'\n〰〰〰〰〰〰〰〰〰〰\n'
-     text = text..'♥️Group ID♥️'..msg.to.id
+   text = text..'🔶نام گروه🔶'..msg.to.title..'\n〰〰〰〰〰〰〰〰〰〰\n'
+     text = text..'♥️آیدی گروه♥️'..msg.to.id
     end
-  text = text..'\n-------------------------------------------\n@DeCoPaJe_TEAM'
+  text = text..'\n-------------------------------------------\n@yadegar'
     return send_msg(receiver, text, ok_cb, true)
     end
   end
